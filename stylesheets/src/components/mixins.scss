@@ -1,0 +1,41 @@
+// Ergonomics based widths
+$width-wrist-max: 100%;
+$width-palm: 85%;
+$width-palm-mq: rem(300);
+$width-lap: 95%;
+$width-lap-mq: rem(750);
+$width-lap-max: 95%;
+$width-desk: 95%;
+$width-desk-mq: rem(1024);
+$width-desk-max: rem(1024);
+$width-wall: 95%;
+$width-wall-mq: rem(1200);
+$width-wall-max: rem(1500);
+
+
+// Breakpoints for Neat's media() mixin
+$mq-palm: new-breakpoint(min-width $width-palm-mq 4);
+$mq-lap: new-breakpoint(min-width $width-lap-mq 12);
+$mq-desk: new-breakpoint(min-width $width-desk-mq 12);
+$mq-wall: new-breakpoint(min-width $width-wall-mq 12);
+
+@mixin container() {
+	@include position(relative, null null null null);
+	@include outer-container();
+	@include size($width-palm initial);
+
+	@include media($mq-lap) {
+		@include outer-container($width-lap-max);
+		@include size($width-lap initial);
+	}
+
+	@include media($mq-desk) {
+		@include outer-container($width-desk-max);
+		@include size($width-desk initial);
+	}
+
+	@include media($mq-wall) {
+		@include outer-container($width-wall-max);
+		@include size($width-wall initial);
+	}
+}

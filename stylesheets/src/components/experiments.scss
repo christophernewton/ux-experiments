@@ -1,0 +1,167 @@
+$zindex10:10;
+$zindex20:20;
+$zindex30:30;
+$zindex40:40;
+
+.ui {
+	font-family:'Open Sans', arial;
+	font-size:14px;
+	background: none;
+	p {
+		line-height:30px;
+	}
+	a {
+		text-decoration: none;
+	}
+	nav {
+		a {
+			display:block;
+			font-size:16px;
+			.fa {
+				margin-right:20px;
+				display: inline-block;
+				min-width:14px;
+			}
+		}
+		ul {
+			padding:0;
+			margin:0;
+			list-style-type:none;
+		}
+		/* Level 1 */
+		@include media($mq-desk) {
+			@include position(fixed, 0 null null 0);
+			z-index:1;
+			width:240px;
+			height:100%;
+			&:before {
+				@include position(fixed, 0 null null 0);
+				height:100%;
+				width:240px;
+				content:'';
+				background:#1f2022;
+				z-index:1;
+			}
+			&:hover {
+				& + .container {
+					@include transition(filter 300ms $ease-out-quad 1000ms);
+					filter:blur(5px);
+					/* filter:url(#blur); */
+				}
+			}
+	 		& > ul {
+				& > li {
+					@include position(relative);
+					&:before, &:after {
+						content:'';
+						display:block;
+					}
+					&:after {
+						@include position(absolute, 0 null null 0);
+						@include transition(all 1000ms $ease-out-expo);
+						@include transform(translate(-100%,0));
+						z-index:$zindex10;
+						width:100%;
+						height:100%;
+					}
+					&:before {
+						@include position(absolute, 0 null null 0);
+						@include transition(all 1000ms $ease-out-quad);
+						z-index:$zindex20;
+						width:100%;
+						height:100%;
+						background: -moz-linear-gradient(left,  rgba(31,32,34,1) 0%, rgba(31,32,34,1) 10%, rgba(31,32,34,0) 100%); /* FF3.6-15 */
+						background: -webkit-linear-gradient(left,  rgba(31,32,34,1) 0%,rgba(31,32,34,1) 10%,rgba(31,32,34,0) 100%); /* Chrome10-25,Safari5.1-6 */
+						background: linear-gradient(to right,  rgba(31,32,34,1) 0%,rgba(31,32,34,1) 10%,rgba(31,32,34,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f2022', endColorstr='#001f2022',GradientType=1 ); /* IE6-9 */
+					}
+					/* li hover for level 2 */
+					&:hover {
+						&:after {
+							@include transform(translate(0%,0));
+						}
+						&:before {
+							opacity:0;
+						}
+						& > ul {
+							@include transition(all 300ms $ease-out-expo 800ms);
+							@include transform(translate(240px));
+							opacity:1;
+							pointer-events: auto;
+						}
+					}
+					& > a {
+						@include position(relative);
+						z-index:$zindex30;
+						padding:15px 10px 15px 20px;
+					}
+				}
+			}
+
+			/* Level 2 */
+			& > ul > li > ul {
+				@include position(fixed, 0 null null 0);
+				@include transition(all 100ms $ease-out-expo 500ms);
+				pointer-events: none;
+				padding-top:119px;
+				width:300px;
+				height:100%;
+				z-index:0;
+				opacity:0;
+				& a {
+					@include transition(all 300ms $ease-out-quad);
+					padding:15px 10px 15px 20px;
+				}
+			}
+			.nav__content {
+				&:after, ul {
+					background-color:#0ba6e0;
+					/* box-shadow:0px 0px 20px 20px rgba(11,166,224,1); */
+				}
+				ul a:hover {
+					background-color:darken(#0ba6e0,3%);
+				}
+			}
+			.nav__connections {
+				&:after, ul {
+					background-color:#fa5000;
+					/* box-shadow:0px 0px 20px 20px rgba(250,80,2,1); */
+				}
+				ul a:hover {
+					background-color:darken(#fa5000,3%);
+				}
+			}
+			.nav__interactions {
+				&:after, ul {
+					background-color:#e1059b;
+					/* box-shadow:0px 0px 20px 20px rgba(225,5,155,1); */
+				}
+				ul a:hover {
+					background-color:darken(#e1059b,3%);
+				}
+			}
+			.nav__transactions {
+				&:after, ul {
+					background-color:#81be0a;
+					/* box-shadow:0px 0px 20px 20px rgba(129,190,10,1); */
+				}
+				ul a:hover {
+					background-color:darken(#81be0a,3%);
+				}
+			}
+			.logo {
+				@include position(relative);
+				z-index:2;
+				padding:30px 20px;
+			}
+		}
+	}
+	.container {
+		@include transition(filter 300ms $ease-out-quad 0ms);
+		padding: 32px 20px 40px 280px;
+		h1 {
+			margin:0;
+		}
+
+	}
+}

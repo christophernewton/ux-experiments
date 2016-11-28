@@ -1,0 +1,35 @@
+{
+  "name": "www",
+  "version": "1.0.0",
+  "private": true,
+  "description": "[![Stories in Ready](https://badge.waffle.io/coldandgoji/ronin.png?label=ready&title=Ready)](https://waffle.io/coldandgoji/ronin) # Ronin",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browserify": "^13.1.1",
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.3.3",
+    "del": "^2.0.2",
+    "gulp-batch": "^1.0.5",
+    "gulp-cache": "^0.4.5",
+    "gulp-clean-css": "^2.0.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-htmlhint": "^0.3.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-kraken": "^0.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.6",
+    "jshint-stylish": "^2.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-ftp": "^0.5.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {},
+  "author": "",
+  "license": "ISC"
+}

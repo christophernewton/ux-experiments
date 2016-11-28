@@ -1,0 +1,94 @@
+@keyframes dash {
+	0% {
+		stroke-dashoffset: 400;
+		opacity:0.7;
+	}
+	100% {
+		stroke-dashoffset: 0;
+		opacity: 1;
+	}
+}
+@keyframes opacity {
+	0% {
+		opacity:-5;
+	}
+	100% {
+		opacity:1;
+	}
+}
+@keyframes opacityHide {
+	0% {
+		opacity:1;
+	}
+	100% {
+		opacity:0;
+	}
+}
+@keyframes taglineFade {
+	0% {
+		opacity:0;
+		@include transform(translate(-10px,0));
+	}
+	100% {
+		opacity:1;
+		@include transform(translate(10px,0));
+	}
+}
+header {
+	@include position(relative);
+	z-index:2;
+	padding:20px 0;
+	.logo__link {
+		@include clearfix;
+		display: block;
+		text-align: center;
+		@include media($mq-desk) {
+			float:left;
+		}
+	}
+	.logo {
+		display:inline-block;
+		max-width:100%;
+		height:auto;
+		.logo__lines path {
+			@include animation(dash 3s $ease-out-quad alternate forwards 0.5s, opacityHide 3s $ease-out-quad alternate forwards 5.5s);
+			stroke-dasharray: 400;
+			stroke-dashoffset: 400;
+		}
+		.logo__fill path {
+			@include animation(opacity 1s $ease-out-quad alternate forwards 5s);
+			opacity:0;
+		}
+
+		@for $i from 1 to 12 {
+			.logo__fill path:nth-child(#{$i}), .logo__lines path:nth-child(#{$i}) {
+				$delay: 0.4 * $i !default
+				animation-delay:#{$delay}s;
+			}
+		}
+		@include media($mq-desk) {
+			float:left;
+		}
+	}
+	.header__tagline {
+		@include transform(translate(0,0));
+		@include animation(taglineFade 0.5s $ease-out-quad alternate forwards 5s);
+		margin:4px 0 0 0px;
+		font-size:12px;
+		opacity:0;
+		color:#fff;
+		line-height:20px;
+		text-align: center;
+		@include media($mq-desk) {
+			float:left;
+			margin-left:10px;
+			text-align: left;
+		}
+		.fa-envelope {
+			margin-right:5px;
+		}
+	}
+	.header__inner {
+		@include container();
+	}
+}

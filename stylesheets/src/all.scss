@@ -1,0 +1,14 @@
+//BOURBON used for mixins
+@import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
+//NEAT for grid layouts
+@import "../../bower_components/neat/app/assets/stylesheets/neat-helpers";
+@import "../../bower_components/neat/app/assets/stylesheets/neat";
+//NORMALIZE for browser normalization 
+@import "../../bower_components/normalize-css/normalize";
+
+//COMPONENTS
+@import "components/mixins";
+@import "components/header";
+@import "components/footer";
+@import "components/experiments";
+@import "components/main";

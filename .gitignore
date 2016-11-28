@@ -1,0 +1,11 @@
+/assets
+/files
+/web_images
+/.cache
+/templates_c
+/node_modules
+/bower_components
+/prodcatalogue
+/import_export
+/.gulp
+.DS_Store

@@ -1,0 +1,10 @@
+footer {
+	@include position(fixed, null null 0 null);
+	background:rgba(40,40,40,1);
+	width:100%;
+	padding:20px;
+	.footer__inner {
+		@include container();
+		color:#fff;
+	}
+}
